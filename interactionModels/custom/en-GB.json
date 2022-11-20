@@ -1,0 +1,248 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "trial application",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "createFlashcard",
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT"
+            },
+            {
+              "name": "card",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "make a flashcard for {subject}",
+            "add a flashcard ",
+            "Create a flashcard "
+          ]
+        },
+        {
+          "name": "fetchFlashcards",
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT"
+            }
+          ],
+          "samples": [
+            "read my flashcards of {subject}",
+            "get my flashcards of {subject}",
+            "get my flashcards",
+            "get all of my flashcards",
+            "get me all flashcards",
+            "read me all flashcards"
+          ]
+        },
+        {
+          "name": "subscriptionStatus",
+          "slots": [],
+          "samples": [
+            "how long is my CSP valid ",
+            "chegg subscription",
+            "what is my subscription status",
+            "What is my account status"
+          ]
+        },
+        {
+          "name": "recommendation",
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT"
+            }
+          ],
+          "samples": [
+            "can you reccomend me some books",
+            "which books should I get",
+            "give me some suggestions for books ",
+            "suggest me some books"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "economics"
+              }
+            },
+            {
+              "name": {
+                "value": "biology"
+              }
+            },
+            {
+              "name": {
+                "value": "chemistry"
+              }
+            },
+            {
+              "name": {
+                "value": "algebra"
+              }
+            }
+          ],
+          "name": "SUBJECT"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "createFlashcard",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.199529653062.138429133039"
+              }
+            },
+            {
+              "name": "card",
+              "type": "AMAZON.SearchQuery",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.199529653062.625282773384"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fetchFlashcards",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1645203426860.1362944380657"
+              }
+            }
+          ]
+        },
+        {
+          "name": "recommendation",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "subject",
+              "type": "SUBJECT",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.159174234829.1342474200310"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.303455801636.1478771230391",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what is your subject"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.199529653062.1308836500011",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What flashcard would you like to add ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.199529653062.625282773384",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is your flashcard content ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.199529653062.138429133039",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "For which subject would you like to add flashcard ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1645203426860.1362944380657",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "For which subject ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.159174234829.1342474200310",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You already have chemistry and biology courses. Which book would you like to try ?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "24"
+}
